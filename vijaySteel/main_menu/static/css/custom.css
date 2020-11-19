@@ -1,0 +1,53 @@
+
+/* Item card hover */
+.overlay:hover{
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;
+    opacity: 80%;
+    transform: scale(1.05);
+    /* background-color: orange; */
+}
+
+/* Navbar transperancy */
+.opec {
+    opacity: 85%;
+}
+
+/* Navbar item 3D effect on hover. */
+.nav-item:hover{
+    transform: scale(1.1);
+}
+
+/* For getting dropdown menu on hover. */
+.dropdown:hover> .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin-top: 0;
+}
+
+/* For getting dropdown menu in front of everything else. */
+.navbar {
+    z-index: 1;
+}
+
+/* Required css for google maps start*/
+#map {
+    height: 50%;
+}
+
+html,
+body, map {
+    height: 100%;
+}
+/* Required css for google maps end */
+
+/* Extra effect to Navigation bar when active */
+.act{
+    /* background-color: red; */
+    font-style: italic;
+}
+
+/* Margin for divider for the content in the drop down menu. */
+.dropdown-divider {
+    margin: 0.1rem;
+}

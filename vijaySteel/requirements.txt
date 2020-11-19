@@ -1,0 +1,5 @@
+Django==3.0.8
+mysql-connector-python==8.0.21
+mysqlclient==2.0.1
+pylint==2.5.3
+autopep8==1.5.2

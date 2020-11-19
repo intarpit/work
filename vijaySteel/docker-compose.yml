@@ -1,0 +1,13 @@
+version: '19'
+
+services: 
+    python:
+        image: python:3.8
+
+    web:
+        build: .
+        command: python manage.py runserver 0.0.0.0:2345
+        ports: 
+            - 2345:2345
+
+    table:
