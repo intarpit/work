@@ -1,3 +1,8 @@
+"""
+The below programs process words in a book and give you different kinds of information.
+You can get what you desire by commenting and uncommenting the below statements.
+"""
+
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
