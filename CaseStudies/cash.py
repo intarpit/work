@@ -1,6 +1,7 @@
 """
 Below program returns the amount of cash to be returned to the customer,
-when the customer pays for a product.
+when the customer pays for a product. It only calculated amount of cents to be returned.
+Doesn't count notes, therfore the difference can't be more than $1.
 It's ask the person the amount of cash received from the customer and the cost of the product.
 """
 while True:
@@ -13,9 +14,9 @@ while True:
         print("Price is higher than cash received. Please collect more cash")
 change = cash_rec - price
 change = round(change, 2)
-print(change)
+# print(change)
 change = int(change * 100)
-print(change)
+# print(change)
 
 return_amount = dict()
 
