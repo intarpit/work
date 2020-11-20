@@ -1,11 +1,15 @@
 """
 Steps:
 1. Go to NCBI webiste.
-2. Search for "NM_201917.1"  or "NM_207618.2" under Nucleotide.
+2. Search for "NM_201917.1"  or "NM_207618.2" under Nucleotide. (Just a suggestion or example, but you can search for anything)
 3. Get the CDS range. CDS for NM_207618.2 - 21..938 (for python - 20..938) and NM_201917.1 - 111..2843 (for python - 110..2843)
 4. Click on "FASTA" and then copy the DNA code into a notepad document and save in the same directory as the code file.
 5. Run the below program.
 """
+"""
+The below programs translate a DNA sequence and return the sequence of protein.
+"""
+
 def DNA_Translate(input_file, start, end):
     """
     This funtion inports a DNA file and will return the type of the protein for every 3 sequence.
