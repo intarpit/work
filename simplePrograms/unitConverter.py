@@ -42,10 +42,16 @@ def kelvinToCelsius(kelvin):
     celsius = kelvin - 273.15
     return (f"celsius = {round(celsius,2)}")
 
-def fahrenheitTokelvin(fahrenheit):
+def fahrenheitTokelvin():
     """Can be used to convert fahrenheit to kelvin"""
-    kelvin = ((fahrenheit - 32) * 5/9) + 273.15
-    return (f"kelvin = {round(kelvin, 2)}")
+    while True:
+        try:
+            fahrenheit = float(input("Please enter a value: "))
+        except ValueError:
+            print("Please input a valid integer.\n")
+            continue
+        kelvin = ((fahrenheit - 32) * 5/9) + 273.15
+        return (f"kelvin = {round(kelvin, 2)}")
 
 def kelvinToFahrenheit(kelvin):
     """Can be used to convert kelvin to fahrenheit"""
@@ -60,5 +66,5 @@ def kelvinToFahrenheit(kelvin):
 # print(fahrenheitToCelsius(value)) #! Please add value of your choice and remove the word value.
 # print(celsiusToKelvin(value)) #! Please add value of your choice and remove the word value.
 # print(kelvinToCelsius(value)) #! Please add value of your choice and remove the word value.
-# print(fahrenheitTokelvin(value)) #! Please add value of your choice and remove the word value.
+# print(fahrenheitTokelvin()) #! Please add value of your choice and remove the word value.
 # print(kelvinToFahrenheit(value)) #! Please add value of your choice and remove the word value.
