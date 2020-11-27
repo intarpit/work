@@ -27,10 +27,16 @@ def celsiusToFahrenheit(celsius):
     fahrenheit = (celsius * (9/5)) + 32
     return (f"fahrenheit = {round(fahrenheit,2)}") 
 
-def fahrenheitToCelsius(fahrenheit):
+def fahrenheitToCelsius():
     """Can be used to convert fahrenheit to celsius"""
-    celsius = (fahrenheit - 32) * 5/9
-    return (f"celsius = {round(celsius,2)}")
+    while True:
+        try:
+            fahrenheit = float(input("Please enter a value: "))
+        except ValueError:
+            print("Please input a valid integer.\n")
+            continue
+        celsius = (fahrenheit - 32) * 5/9
+        return (f"celsius = {round(celsius,2)}")
 
 def celsiusToKelvin(celsius):
     """Can be used to convert celsius to Kelvin"""
@@ -63,7 +69,7 @@ def kelvinToFahrenheit(kelvin):
 # print(poundsTokilograms(value)) #! Please add value of your choice and remove the word value.
 # print(kilogramsToPound(value)) #! Please add value of your choice and remove the word value.
 # print(celsiusToFahrenheit(value)) #! Please add value of your choice and remove the word value.
-# print(fahrenheitToCelsius(value)) #! Please add value of your choice and remove the word value.
+# print(fahrenheitToCelsius()) #! Please add value of your choice and remove the word value.
 # print(celsiusToKelvin(value)) #! Please add value of your choice and remove the word value.
 # print(kelvinToCelsius(value)) #! Please add value of your choice and remove the word value.
 # print(fahrenheitTokelvin()) #! Please add value of your choice and remove the word value.
