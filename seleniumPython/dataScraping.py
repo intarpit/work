@@ -12,23 +12,22 @@ drive = "" #! Please enter drive path.
 fileName = "" #! Please enter file name.
 path = drive + fileName
 
-institutionNameFile = "InstitutionsNames"
-instNamePath = drive + institutionNameFile
-
-st = 2
-nameDict = dict()
-
-def InstitutionsNames():
-    itn = op.load_workbook(institutionNameFile)
+r = 3 #! Please change the row number to the row number from which you would like to start reading the file.
+nameList = list()
+def institutionsNames():
+    """
+    This function load all the data from a excel sheet for a particular column and stores it in a list named "nameList".
+    """
+    itn = op.load_workbook(path)
     itnSh = itn.get_sheet_by_name("Sheet1")
-    maxRow = itn.max_row
-    for s in range(2, (maxRow + 10)):
-        name = itnSh.cell(row = s, column = 2).value
+    maxRow = itnSh.max_row
+    for s in range(r, (maxRow + 10)):
+        name = itnSh.cell(row = s, column = 3).value #! Please change the column number based on the column number in your file.
         if name != None:
             name = name.strip()
-            nameDict.append(name)
-    return nameDict
-
+            nameList.append(name)
+    itn.close()
+    return nameList
 
 chromeOptions = webdriver.ChromeOptions()
 chromeOptions.add_argument("start-maximized")
@@ -39,7 +38,7 @@ chromeOptions.add_experimental_option("detach",True)
 driver = webdriver.Chrome(chrome_options=chromeOptions)
 driver.get("https://www.edufever.com/")
 
-for i in nameDict:
+for i in nameList:
     seachSign = driver.find_element_by_xpath("//*[@id='menu-mymenu-1']/li[9]/a")
     seachSign.click()
 
