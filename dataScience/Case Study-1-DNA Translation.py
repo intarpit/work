@@ -14,7 +14,6 @@ def DNA_Translate(input_file, start, end):
     """
     This funtion inports a DNA file and will return the type of the protein for every 3 sequence.
     """
-
     DNA_file = open(input_file, "r")
     seq = DNA_file.read()
     seq = seq.replace("\n", "")
@@ -23,7 +22,7 @@ def DNA_Translate(input_file, start, end):
     # print(len(seq))
     # print(seq)
 
-
+    #? Dictionary of types of sequences and proteins.
     table = {
         'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M', 
         'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T', 
@@ -42,8 +41,8 @@ def DNA_Translate(input_file, start, end):
         'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_', 
         'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W', 
     } 
-    #print(table)
 
+    #? Calculating the type of protein based on the above table.
     protein = []
     if len(seq) % 3 == 0:
         for code in range(0, len(seq), 3):

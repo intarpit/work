@@ -5,6 +5,7 @@ Doesn't count notes, therfore the difference can't be more than $1.
 It's ask the person the amount of cash received from the customer and the cost of the product.
 """
 while True:
+    #? Collecting and validating user input.
     cash_rec = float(input("Cash received: "))
     price = float(input("Cost of the product: "))
     if cash_rec >= price:
@@ -14,13 +15,13 @@ while True:
         print("Price is higher than cash received. Please collect more cash")
 change = cash_rec - price
 change = round(change, 2)
-# print(change)
 change = int(change * 100)
-# print(change)
 
+#? Creating a dict, which will be return at the end to the user.
 return_amount = dict()
 
 cents = [50, 10, 5, 1]
+#? Creating a loop to calculate change.
 while change != 0.00:
     if change >= cents[0]:
         if cents[0] in return_amount:
