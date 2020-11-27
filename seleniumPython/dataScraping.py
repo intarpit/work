@@ -17,6 +17,7 @@ nameList = list()
 def institutionsNames():
     """
     This function load all the data from a excel sheet for a particular column and stores it in a list named "nameList".
+    Current design to get data from single column but can be chaged to get data from multiple column.
     """
     itn = op.load_workbook(path)
     itnSh = itn.get_sheet_by_name("Sheet1")
@@ -29,21 +30,38 @@ def institutionsNames():
     itn.close()
     return nameList
 
-chromeOptions = webdriver.ChromeOptions()
-chromeOptions.add_argument("start-maximized")
-chromeOptions.add_argument("disable-infobars")
-chromeOptions.add_argument("disable-popup-blocking")
-chromeOptions.add_experimental_option("detach",True)
+accreditationsDict = dict()
+def accreditationsScraping():
+    """
+    This function will scrap the data from the website and store it a dict name "accreditationsDict".
+    It uses selenium webdriver for searching and getting the data.
+    """
+    chromeDriverPath = "" #! Please add your googlechrome driver path.
+    chromeOptions = webdriver.ChromeOptions()
+    #? Feel free to adjust the below argument based on your requirement.
+    chromeOptions.add_argument("start-maximized")
+    chromeOptions.add_argument("disable-infobars")
+    chromeOptions.add_argument("headless")
+    chromeOptions.add_argument("disable-popup-blocking")
+    chromeOptions.add_experimental_option("detach",True)
 
-driver = webdriver.Chrome(chrome_options=chromeOptions)
-driver.get("https://www.edufever.com/")
+    driver = webdriver.Chrome(chromeDriverPath, chrome_options=chromeOptions)
+    driver.get("https://www.4icu.org/in/a-z/")
 
-for i in nameList:
-    seachSign = driver.find_element_by_xpath("//*[@id='menu-mymenu-1']/li[9]/a")
-    seachSign.click()
+    #? Calling the above function here, so no need to call it seperately.
+    institutionsNames()
+    for i in nameList:
+        driver.get("https://www.4icu.org/in/a-z/")
 
-    searchBar = driver.find_element_by_id("q")
-    searchBar.send_keys(i)
+        try:
+            schoolName = driver.find_element_by_link_text(i)
+            schoolName.click()
 
+            time.sleep(2)
 
-time.sleep(500)
+            accreditations = driver.find_element_by_xpath("/html/body/div[3]/div[10]/div[2]/p[1]/a")
+            accreditationsText = accreditations.text
+            accreditationsDict[i] = accreditationsText
+        except:
+            pass
+    return accreditationsDict
