@@ -49,7 +49,12 @@ def accreditationsScraping():
 
     #? Calling the above function here, so no need to call it seperately.
     institutionsNames()
+    nameListLength = len(nameList)
+    print(nameListLength)
+    # curr = 0
     for i in nameList:
+        # curr += 1
+        # print(curr)
         driver.get("https://www.4icu.org/in/a-z/")
 
         try:
