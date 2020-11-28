@@ -1,2 +1,3 @@
-**********Current under progress***********
-Using selenium for data scraping from a website and uploading all the scrapped data to a excel sheet.
+Using selenium webdriver:
+1. For data scraping from a website and uploading all the scrapped data to a excel sheet.
+2. For testing purposes.
