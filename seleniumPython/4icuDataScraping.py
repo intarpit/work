@@ -1,7 +1,6 @@
 """
 The below program gets data from excel sheet and the look up for the data on a website and then scraps that data
 and then insert it on a excel sheet.
-! ? Currently work in progress.
 """
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -20,7 +19,7 @@ def institutionsNames():
     Current design to get data from single column but can be chaged to get data from multiple column.
     """
     itn = op.load_workbook(path)
-    itnSh = itn.get_sheet_by_name("Sheet1")
+    itnSh = itn["Sheet1"]
     maxRow = itnSh.max_row
     for s in range(r, (maxRow + 10)):
         name = itnSh.cell(row = s, column = 3).value #! Please change the column number based on the column number in your file.
@@ -45,7 +44,7 @@ def accreditationsScraping():
     chromeOptions.add_argument("disable-popup-blocking")
     chromeOptions.add_experimental_option("detach",True)
 
-    driver = webdriver.Chrome(chromeDriverPath, chrome_options=chromeOptions)
+    driver = webdriver.Chrome(chromeDriverPath, options=chromeOptions)
     driver.get("https://www.4icu.org/in/a-z/")
 
     #? Calling the above function here, so no need to call it seperately.
@@ -65,3 +64,24 @@ def accreditationsScraping():
         except:
             pass
     return accreditationsDict
+
+def dataPosting():
+    """
+    This functions open the same excel sheet from which we retrieve data
+    and then will store the collected data in the new column.
+    """
+    itn = op.load_workbook(path)
+    itnSh = itn["Sheet1"]
+    maxRow = itnSh.max_row
+    for s in range(r, (maxRow + 10)):
+        name = itnSh.cell(row = s, column = 3).value #! Please change the column number based on the column number in your file.
+        for key, val in accreditationsDict.items():
+            if key == name:
+                accreditationsValue = itnSh.cell(row = s, column = 10) #! Please change the column number based on the column number in your file.
+                accreditationsValue.value = val
+    itn.save(path)
+    itn.close()
+
+#? Calling the above functions, which will get data from excel, search it on a website and stored the collected data in same excel sheet.
+accreditationsScraping()
+dataPosting()
