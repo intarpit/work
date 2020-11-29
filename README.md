@@ -1,2 +1,2 @@
 # work
-Please find README inside the folder, which will help you better understand.
+Please find README inside the folders, which will help you better understand.
