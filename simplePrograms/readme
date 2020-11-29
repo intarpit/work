@@ -4,4 +4,5 @@ Some useful programs.
 3. creditCard - Check if the credit card number is valid and returning the name of issuing company.
 4. cypherCode - Takes a message and returns the message in coded form.
 5. cypherCodeDecode - Decodes the coded message.
-6. unitConverter - Convert units from one to another. 
+6. unitConverter - Convert units from one to another.
+7. scientificCalculator - Can be used to make scientific calculations.
