@@ -14,6 +14,19 @@ def compoundInterest(amount, rate, term):
 Total amount to be paid in {term} years = ${totalPayment:,d}
 Monthly Payment = ${monthlyPayment:,d}\n""")
 
+def simpleInterest(amount, rate, term):
+    """
+    This function calculates simple interest.
+    Term and rate are assumed annunally.
+    """
+    rate = rate/100
+    interest = int(amount * rate * (term))
+    totalAmount = int(amount + interest)
+    monthlyPayment = int(totalAmount/(term*12))
+    return (f"""Interest to be paid in {term} years = ${interest:,d}
+Total amount to be paid in {term} years = ${totalAmount:,d}
+Monthly Payment = ${monthlyPayment:,d}\n""")
+
 def carLoanCalculator(amount, rate, term):
     """
     This function calculates compound interest.
