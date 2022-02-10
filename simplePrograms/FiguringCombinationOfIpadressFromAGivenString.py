@@ -31,3 +31,5 @@ for r in range(1, len(s)):
                         if third_int > 0 and third_int <= 255:
                             if fourth_int > 0 and fourth_int <= 255:
                                 print(f"{first}.{second}.{third}.{fourth}")
+
+                                
