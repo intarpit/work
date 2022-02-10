@@ -7,4 +7,5 @@ Some useful programs.
 6. unitConverter - Convert units from one to another.
 7. scientificCalculator - Can be used to make scientific calculations.
 8. financialCalculation - programs for making financial calculations.
-9. FiguringCombinationOfIpadressFromAGivenString - A program using which you can find the number of ip addressess, which can be generated from a given string of numbers.
+9. PossibleIpAddressFromAGivenString- A program using which you can find the number of ip addressess, which can be generated from a given string of numbers.
+10. OccuranceOfObjectsInString_WhenPreviousObjectsAndCurrentObjectIsMatching- A program, which find the occurance of a letter/number/symbol in a string, when the current letter/number/symbol matches to previous letter/number/symbol only. It also provides the postion of that letter/number/symbol in the given string.
